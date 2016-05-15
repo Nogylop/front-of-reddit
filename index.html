@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -34,4 +35,69 @@
 
   
   </body>
+=======
+
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Is YhCHKN on the front page of reddit?</title>
+		<style>
+			body {
+				text-align: center;
+				font-weight: bold;
+				font-family: sans-serif;
+			}
+			a {
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			h1 {
+				font-size: 2em;
+				margin-top: 2em;
+			}
+			#answer {
+				font-size: 4em;
+				text-transform: capitalize;
+			}
+			#posts {
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Is YhCHKN on the front page of reddit?</h1>
+		<p id="answer">Checking...</p>
+		<ul id="posts"></ul>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			jQuery(document).ready( function( $ ) {
+				$.getJSON( 'https://www.reddit.com/r/all/.json?limit=50', function( r ) {
+					var posts = r.data.children;
+					var isFront = false;
+					$.each( posts, function( i, post ) {
+						var author = post.data.author;
+						if ( author === 'YhCHKN' ) {
+							$('#answer').text('yes.');
+							$('#posts').append(
+								$('<li>').append(
+									$('<a>')
+										.attr('href', 'http://reddit.com' + post.data.permalink)
+										.text(post.data.title)
+								)
+							);
+							isFront = true;
+						}
+					} )
+					if ( !isFront ) {
+						$('#answer').text('no.');
+					}
+				} );
+			} );
+		</script>
+	</body>
+>>>>>>> refs/remotes/origin/master
 </html>
