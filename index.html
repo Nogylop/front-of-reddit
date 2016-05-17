@@ -14,7 +14,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">reddit check</h1>
-      <h2 class="project-tagline">checks to see if YhCHKN is front page of reddit</h2>
+      <h2 class="project-tagline">checks to see if I'm on the front page of reddit</h2>
     </section>  
   </body>
 
@@ -61,7 +61,7 @@
 					$.each( posts, function( i, post ) {
 						var author = post.data.author;
 						if ( author === 'YhCHKN' ) {
-							$('#answer').text('YEH BOI.');
+							$('#answer').text('Yes');
 							$('#posts').append(
 								$('<li>').append(
 									$('<a>')
@@ -73,7 +73,7 @@
 						}
 					} )
 					if ( !isFront ) {
-						$('#answer').text('not yet <|:^).');
+						$('#answer').text('No');
 					}
 				} );
 			} );
